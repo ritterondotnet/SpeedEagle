@@ -26,8 +26,11 @@ function recordAnalytics($url,$id,$db)
 //Function to get URL of current page.
 function getURL() {
 	$pageURL = 'http';
-	if ($_SERVER["HTTPS"] == "on") {
-		$pageURL .= "s";
+	if (isset($_SERVER["HTTPS"]))
+	{
+    	if ($_SERVER["HTTPS"] == "on") {
+    		$pageURL .= "s";
+    	}
 	}
 	$pageURL .= "://";
 	if ($_SERVER["SERVER_PORT"] != "80") {
